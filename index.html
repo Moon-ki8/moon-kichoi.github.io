@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY NAME - Research Profile</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .profile-info {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .profile-photo {
+            flex: 1;
+            text-align: center;
+            margin: 20px;
+            max-width: 300px;
+        }
+        
+        .profile-photo img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 50%;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ecf0f1;
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 15px;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin: 0;
+        }
+        
+        .nav-links a {
+            display: block;
+            padding: 20px;
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background-color: #f1f1f1;
+            color: #3498db;
+        }
+        
+        /* Section styles */
+        section {
+            padding: 60px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: white;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+            display: inline-block;
+        }
+        
+        /* Research section */
+        .research-interests {
+            margin-bottom: 40px;
+        }
+        
+        .research-interests h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .research-projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        /* Publications section */
+        .publication-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .publication {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .publication h3 {
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .publication-meta {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+        
+        .publication-links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        /* Video section */
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .video-item {
+            margin-bottom: 30px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-title {
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        
+        .video-description {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        /* Footer styles */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            
+            .profile-info, .profile-photo {
+                flex: 1 1 100%;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .nav-links a {
+                text-align: center;
+                padding: 15px;
+            }
+            
+            .video-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container profile-header">
+            <div class="profile-info">
+                <h1>MY NAME</h1>
+                <p class="subtitle">Position • Department • University</p>
+                <p>Brief professional description explaining your research focus and expertise.</p>
+                <div class="contact-info">
+                    <a href="mailto:email@example.com">email@example.com</a>
+                    <a href="tel:+11234567890">+1 (123) 456-7890</a>
+                </div>
+            </div>
+            <div class="profile-photo">
+                <img src="/api/placeholder/250/250" alt="MY NAME">
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="nav-logo">
+                <!-- Optional logo here -->
+            </div>
+            <ul class="nav-links">
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Research Section -->
+    <section id="research">
+        <div class="container">
+            <h2>Research</h2>
+            
+            <div class="research-interests">
+                <h3>Research Interests</h3>
+                <p>A detailed description of your research interests and the problems you're working to solve. Explain why this research matters and how it contributes to your field.</p>
+                <ul>
+                    <li>Research Area 1</li>
+                    <li>Research Area 2</li>
+                    <li>Research Area 3</li>
+                    <li>Research Area 4</li>
+                </ul>
+            </div>
+            
+            <div class="research-projects">
+                <div class="project-card">
+                    <img src="/api/placeholder/400/200" alt="Project 1">
+                    <div class="project-content">
+                        <h3>Project Title 1</h3>
+                        <p>Brief description of the project, its goals, and its significance to your field.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="/api/placeholder/400/200" alt="Project 2">
+                    <div class="project-content">
+                        <h3>Project Title 2</h3>
+                        <p>Brief description of the project, its goals, and its significance to your field.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="/api/placeholder/400/200" alt="Project 3">
+                    <div class="project-content">
+                        <h3>Project Title 3</h3>
+                        <p>Brief description of the project, its goals, and its significance to your field.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Publications Section -->
+    <section id="publications">
+        <div class="container">
+            <h2>Publications</h2>
+            
+            <div class="publication-list">
+                <div class="publication">
+                    <h3>Publication Title 1</h3>
+                    <div class="publication-meta">
+                        <span>Authors: Your Name, Co-author 1, Co-author 2</span>
+                        <span> • Journal/Conference Name (Year)</span>
+                    </div>
+                    <p>Brief abstract or description of the publication and its contribution to the field.</p>
+                    <div class="publication-links">
+                        <a href="#">PDF</a>
+                        <a href="#">DOI</a>
+                        <a href="#">Code</a>
+                        <a href="#">BibTeX</a>
+                    </div>
+                </div>
+                
+                <div class="publication">
+                    <h3>Publication Title 2</h3>
+                    <div class="publication-meta">
+                        <span>Authors: Your Name, Co-author 1, Co-author 2</span>
+                        <span> • Journal/Conference Name (Year)</span>
+                    </div>
+                    <p>Brief abstract or description of the publication and its contribution to the field.</p>
+                    <div class="publication-links">
+                        <a href="#">PDF</a>
+                        <a href="#">DOI</a>
+                        <a href="#">Code</a>
+                        <a href="#">BibTeX</a>
+                    </div>
+                </div>
+                
+                <div class="publication">
+                    <h3>Publication Title 3</h3>
+                    <div class="publication-meta">
+                        <span>Authors: Your Name, Co-author 1, Co-author 2</span>
+                        <span> • Journal/Conference Name (Year)</span>
+                    </div>
+                    <p>Brief abstract or description of the publication and its contribution to the field.</p>
+                    <div class="publication-links">
+                        <a href="#">PDF</a>
+                        <a href="#">DOI</a>
+                        <a href="#">Code</a>
+                        <a href="#">BibTeX</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Videos Section -->
+    <section id="videos">
+        <div class="container">
+            <h2>Videos</h2>
+            
+            <div class="video-gallery">
+                <div class="video-item">
+                    <div class="video-container">
+                        <!-- Replace with your actual video embed code -->
+                        <img src="/api/placeholder/400/225" alt="Video 1">
+                    </div>
+                    <h3 class="video-title">Research Presentation 1</h3>
+                    <p class="video-description">Brief description of the video content and context.</p>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-container">
+                        <!-- Replace with your actual video embed code -->
+                        <img src="/api/placeholder/400/225" alt="Video 2">
+                    </div>
+                    <h3 class="video-title">Research Presentation 2</h3>
+                    <p class="video-description">Brief description of the video content and context.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            
+            <div class="contact-details">
+                <p>
+                    <strong>Email:</strong> <a href="mailto:email@example.com">email@example.com</a><br>
+                    <strong>Phone:</strong> <a href="tel:+11234567890">+1 (123) 456-7890</a><br>
+                    <strong>Office:</strong> Building Name, Room Number, University Name<br>
+                    <strong>Address:</strong> Full mailing address
+                </p>
+                
+                <p>Feel free to reach out if you're interested in collaborating or have questions about my research.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 MY NAME. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">Google Scholar</a>
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
